@@ -2,15 +2,15 @@ const express = require("express");
 
 const app = express();
 
-app.get("/users", (require, Response) =>{
-    const params = request.query; 
-    console.console.log(params);
-    
+app.get("/users/:id", (request, Response) =>{
+    const params = request.params;
+
+    console.log(params);
+
     return Response.json({
         evento: "semana omnistack",
         aluno: "juan gomes"
     });
-
 });
 
 
