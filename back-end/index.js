@@ -2,10 +2,17 @@ const express = require("express");
 
 const app = express();
 
-app.get("/", (require, Response) =>{
+app.get("/users", (require, Response) =>{
+    const params = request.query; 
+    console.console.log(params);
+    
+    return Response.json({
+        evento: "semana omnistack",
+        aluno: "juan gomes"
+    });
 
-    return Response.send("hello world");
+});
 
-})
+
 
 app.listen(3333);
