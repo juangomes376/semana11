@@ -1,6 +1,6 @@
 const express = require("express");
 
-const routes = espress.Router();
+const routes = express.Router();
 
 routes.post("/users", (request, Response) =>{
     const body = request.body;
