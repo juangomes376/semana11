@@ -1,16 +1,24 @@
 const express = require("express");
-
+const crypto = require("crypto");
+const conection = require("./database/conection");
 const routes = express.Router();
 
-routes.post("/users", (request, Response) =>{
-    const body = request.body;
+routes.post("/ongs", (request, Response) =>{
+     const { name, email, whatsapp, city, uf} = request.body;
+    
+     const id = crypto.randomBytes(4).toString("HEX");
 
-    console.log(body);
-
-    return Response.json({
-        evento: "semana omnistack",
-        aluno: "juan gomes"
-    });
+     conection("ongs").insert({
+        id,
+        name,
+        email,
+        whatsapp,
+        city,
+        uf,
+        
+    })
+    
+    return Response.json({id} );
 });
 
 module.exports = routes;
